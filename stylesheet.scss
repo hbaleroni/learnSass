@@ -1,0 +1,62 @@
+@import 'partial';
+
+$page-width: 1400px;
+$padding: 20px;
+$border-style: solid;
+
+@mixin border-width($thickness) {
+  -webkit-border-width: $thickness;
+    -moz-border-width: $thickness;
+      -msborder-width: $thickness;
+        border-width: $thickness;
+  @content;
+}
+
+body {
+  color: $color;
+}
+
+ul {
+  margin: 0;
+}
+
+aside {
+  a {
+    color: red;
+  }
+}
+
+img {
+  @include border-width(10px) {
+    border-style: $border-style;
+  }
+}
+
+button {
+  color: black;
+  &:focus {
+    color: red;
+  }
+}
+
+.container[role=main] {
+  padding: $padding;
+  width: $page-width * 0.8 - (2*$padding);
+}
+
+.sassy {
+  border: {
+    width: 10px;
+    color: red;
+    radius: 5px;
+  }
+}
+
+.push-button {
+  background-color: blue;
+}
+
+.main-button {
+  @extend .push-button;
+  font-weight: bold;
+}

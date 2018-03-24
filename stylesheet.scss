@@ -3,12 +3,13 @@
 $page-width: 1400px;
 $padding: 20px;
 $border-style: solid;
+$selector: article;
 
 @mixin border-width($thickness) {
   -webkit-border-width: $thickness;
-    -moz-border-width: $thickness;
-      -msborder-width: $thickness;
-        border-width: $thickness;
+     -moz-border-width: $thickness;
+      -ms-border-width: $thickness;
+          border-width: $thickness;
   @content;
 }
 
@@ -59,4 +60,27 @@ button {
 .main-button {
   @extend .push-button;
   font-weight: bold;
+}
+
+#{$selector} {
+  color: #ff0000;
+}
+
+@each $big-cats in cheetah, puma, jaguar, panther, tiger, leaopard {
+  .#{big-cats}-picture {
+    padding: 3em;
+  }
+}
+
+@for $i from 1 through 6 {
+  h#{$i} {
+    font-size: 24px - 3px * $i;
+  }
+}
+
+$i: 6;
+@while $i > 0 {
+  h#{$i} {
+    font-size: 24px - 3px * $i;
+  }
 }
